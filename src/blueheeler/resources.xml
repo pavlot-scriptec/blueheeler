@@ -1,0 +1,5 @@
+<gresources>
+  <gresource prefix="/pl/scriptec/blue-heeler">
+    <file>assets/icons/hicolor/scalable/apps/blue-heeler-logo.svg</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,52 @@
+[project]
+name = "blueheeler"
+version = "0.1.0"
+description = "GTK4 bluetooth analyzer"
+authors = [
+    {name = "Pavlo Taranov",email = "pavlo.taranov@scriptec.pl"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "bleak (>=1.1.1,<2.0.0)",
+    "pygobject (>=3.54.0,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.14.2,<0.15.0)",
+    "mypy (>=1.18.2,<2.0.0)",
+    "taskipy (>=1.14.1,<2.0.0)",
+    "pytest-asyncio (>=1.2.0,<2.0.0)",
+    "pytest (>=8.4.2,<9.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "pygobject-stubs (>=2.14.0,<3.0.0)",
+    "faker (>=38.2.0,<39.0.0)"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+lint.extend-select = ["I"]
+lint.ignore = ["E402"]
+
+[tool.poetry.scripts]
+blueheeler = "blueheeler.application:main"
+
+[[tool.mypy.overrides]]
+module = "gi.*"
+ignore_missing_imports = true
+
+[tool.taskipy.tasks]
+check = "poetry run ruff check --fix . && poetry run mypy --check-untyped-defs ."
+compile_resources = "glib-compile-resources src/blueheeler/resources.xml --target=src/blueheeler/resources.gresource --sourcedir=src/blueheeler"
+build = "poetry run task compile_resources && poetry run task check && poetry build"
+
+[tool.setuptools.package-data]
+blueheeler = ["assets/*"]
