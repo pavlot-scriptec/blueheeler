@@ -1,4 +1,5 @@
 # Development
+For project development [GitHubFlow](https://githubflow.github.io/) is used
 ## Build
 To validate and build project run:
 `poetry run task build`
