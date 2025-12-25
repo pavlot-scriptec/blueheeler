@@ -19,7 +19,7 @@ jobs:
       - name: Install poetry dependencies
         run: poetry install
       - name: Run tests
-        run: poetry run pytests ./tests/unit
+        run: poetry run pytest ./tests/unit
       - name: Run build
         run: poetry run task build
       - name: Create or update GitHub release
