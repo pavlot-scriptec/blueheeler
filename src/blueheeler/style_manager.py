@@ -33,7 +33,7 @@ class StyleManager:
     @classmethod
     def load_resources(cls):
         with resources.as_file(
-            resources.files("blueheeler").joinpath("resources.gresource")
+            resources.files("blueheeler.assets").joinpath("blueheeler.gresource")
         ) as resource_path:
             resource = Gio.Resource.load(str(resource_path))
             Gio.resources_register(resource)
