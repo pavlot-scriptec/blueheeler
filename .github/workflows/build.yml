@@ -1,6 +1,10 @@
 name: build
 run-name: Build and packaging for blueheeler project
 on: [push]
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
