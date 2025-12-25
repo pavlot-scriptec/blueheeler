@@ -2,7 +2,7 @@ name: build
 run-name: Build and packaging for blueheeler project
 on: [push]
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update
