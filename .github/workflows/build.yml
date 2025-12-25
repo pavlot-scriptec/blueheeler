@@ -17,7 +17,9 @@ jobs:
       - name: Install PIP dependencies
         run: pip3 install pycairo poetry
       - name: Install poetry dependencies
-        run: poetry install --no-root
+        run: poetry install
+      - name: Run tests
+        run: poetry run pytests ./tests/unit
       - name: Run build
         run: poetry run task build
       - name: Create or update GitHub release
