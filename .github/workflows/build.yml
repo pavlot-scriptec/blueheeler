@@ -16,3 +16,11 @@ jobs:
         run: poetry install --no-root
       - name: Run build
         run: poetry run task build
+      - name: Create or update GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="nightly-${{ github.run_number }}"
+          gh release create "$TAG" dist/* \
+            --title "Nightly build $TAG" \
+            --notes "Automated build from main @ ${{ github.sha }}"
