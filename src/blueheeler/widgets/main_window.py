@@ -1,6 +1,6 @@
 from gettext import gettext
 
-from gi.repository import Adw, Gdk, Gio, GObject, Gtk
+from gi.repository import Gdk, Gio, GObject, Gtk
 
 from blueheeler.widgets.device_page_factory import DevicePageFactory
 
@@ -187,11 +187,11 @@ class MainWindow(Gtk.ApplicationWindow):
         pkg_name = "blueheeler"
         meta = metadata(pkg_name)
 
-        about = Adw.AboutDialog(
-            application_name=meta["Name"],
-            application_icon="blue-heeler-logo",
-            version=meta["Version"],
+        about = Gtk.AboutDialog(
+            program_name=meta["Name"],
+            logo_icon_name="blue-heeler-logo",
             license_type=Gtk.License.MIT_X11,
+            version=meta["Version"]
         )
         about.present()
 

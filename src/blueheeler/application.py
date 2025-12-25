@@ -2,13 +2,13 @@ from typing import Optional
 
 import gi
 
-gi.require_version("Adw", "1")
+# gi.require_version("Adw", "1")
 
 import asyncio
 import logging
 
 from gi.events import GLibEventLoopPolicy
-from gi.repository import Adw, GObject
+from gi.repository import Gtk, GObject
 
 from blueheeler.models.device_repository import DeviceRepository
 
@@ -26,7 +26,7 @@ logging.basicConfig(
 from .style_manager import StyleManager
 
 
-class Application(Adw.Application):
+class Application(Gtk.Application):
 
     def __init__(self, *args, **kwargs):
 
