@@ -8,6 +8,12 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GDK_BACKEND: x11
+      GTK_A11Y: none
+      NO_AT_BRIDGE: 1
+      GSETTINGS_BACKEND: memory
+      DISPLAY: :99
     steps:
       - uses: actions/checkout@v4
       - name: Install APT packages
