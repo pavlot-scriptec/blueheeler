@@ -51,4 +51,4 @@ Thumbs.db
 *.egg-info
 
 src/blueheeler/**/*.gresource
-
+*.deb

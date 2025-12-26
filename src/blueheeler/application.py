@@ -1,8 +1,10 @@
-# gi.require_version("Adw", "1")
 import asyncio
 import logging
 from typing import Optional
 
+import gi
+
+gi.require_version('Gtk', '4.0')
 from gi.events import GLibEventLoopPolicy
 from gi.repository import GObject, Gtk
 
