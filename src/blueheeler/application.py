@@ -50,7 +50,6 @@ class Application(Gtk.Application):
 
 
 def main():
-    #TODO PTAR Remove it
     asyncio.set_event_loop_policy(GLibEventLoopPolicy())
     app = Application()
     app.run(None)
